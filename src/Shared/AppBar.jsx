@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 
 
 import {
@@ -19,21 +19,23 @@ export default function AppBar() {
     <nav className="bg-blue-500">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
-        
-          <div className="flex-1 flex items-center my-2  sm:justify-start">
+          
+         <a href="/">
+          <div className="flex-1 flex items-center my-2  sm:justify-start">            
             <div className="flex-shrink-0 text-white text-xl font-bold">
               Mo Ghara
             </div>
           </div>
+          </a>
           <div className="flex items-center space-x-4">
             <button className="bg-blue-600 p-1 rounded-full text-white hover:text-gray-300 focus:outline-none">
               <span className="sr-only">View messages</span>
-              {/* <MailIcon className="h-6 w-6" /> */}
+              
               <FontAwesomeIcon icon={faEnvelope} />
             </button>
             <button className="bg-blue-600 p-1 rounded-full text-white hover:text-gray-300 focus:outline-none">
               <span className="sr-only">View notifications</span>
-              {/* <BellIcon className="h-6 w-6" /> */}
+              
               <FontAwesomeIcon icon={faBell} />
             </button>
             <div className="relative">
@@ -41,7 +43,7 @@ export default function AppBar() {
                 onClick={toggleMenu}
                 className="bg-blue-600 p-1 rounded-full text-white hover:text-gray-300 focus:outline-none"
               >
-                {/* <UserCircleIcon className="h-6 w-6" /> */}
+                
                 <FontAwesomeIcon icon={faUser} />
               </button>
               {menuOpen && (
