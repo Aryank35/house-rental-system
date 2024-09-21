@@ -8,7 +8,7 @@ const DueBox = (props) => {
     if (props.buttonText === 'Pay') {
       navigate('/feesDescription'); 
     } else if (props.buttonText === 'view receipt') {
-      navigate('/paymentHistory'); 
+      navigate('/rentReceipt'); 
     }
   };
 
