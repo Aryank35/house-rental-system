@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const categories = [
   { value: 'rent', label: 'Rent' },
@@ -12,10 +12,23 @@ const Complains = () => {
   const [message, setMessage] = useState('');
   const [chatLog, setChatLog] = useState([]);
 
+  // Retrieve chat log from localStorage when the component mounts
+  useEffect(() => {
+    const storedChatLog = localStorage.getItem('chatLog');
+    if (storedChatLog) {
+      setChatLog(JSON.parse(storedChatLog));
+    }
+  }, []);
+
+  // Function to handle sending a message
   const handleSendMessage = () => {
     if (category && message) {
-      setChatLog([...chatLog, { category, message }]);
+      const newChatLog = [...chatLog, { category, message }];
+      setChatLog(newChatLog);
       setMessage('');
+
+      // Save the updated chat log to localStorage
+      localStorage.setItem('chatLog', JSON.stringify(newChatLog));
     }
   };
 

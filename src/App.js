@@ -7,6 +7,7 @@ import FeesDescription from "./Components/Pages/Payment/FeesDescription";
 import PaymentHistory from "./Components/Pages/Payment/PaymentHistory";
 import RentReceipt from "./Components/RentReceipt";
 import Complains from "./Components/Pages/Complains";
+import ElectricityBill from "./Components/Pages/Payment/ElectricityBill";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/paymentHistory" element={<PaymentHistory />} />
           <Route path="/rentReceipt" element={<RentReceipt />} />
           <Route path="/complains" element={<Complains />} />
+          <Route path="/electricityBill" element={<ElectricityBill/>} />
         </Routes>
       </BrowserRouter>
     </>
