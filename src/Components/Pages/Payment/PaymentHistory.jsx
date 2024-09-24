@@ -69,7 +69,7 @@ const PaymentHistory = () => {
               {payments.map((payment) => (
                 <tr key={payment.id}>
                   <td className="border border-gray-400 p-2">{payment.date}</td>
-                  <td className="border border-gray-400 p-2">${payment.amount}</td>
+                  <td className="border border-gray-400 p-2">₹{payment.amount}</td>
                   <td className="border border-gray-400 p-2">{payment.status}</td>
                 </tr>
               ))}

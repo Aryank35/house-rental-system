@@ -4,7 +4,7 @@ import { faPersonShelter } from "@fortawesome/free-solid-svg-icons";
 
 const UserInfo = () => {
   const [userName, setuserName] = useState("Aryan kumar Mohapatra");
-  const [roomNo, setroomNo] = useState(1);
+  const [roomNo, setroomNo] = useState(101);
 
   return (
     <>

@@ -1,89 +1,134 @@
-import React from 'react';
+
+
+import { useState } from 'react';
+
+const defaultProfile = {
+  photo: 'https://i.postimg.cc/TYBN5TwL/Aryan.webp',
+  name: 'Aryan kumar Mohapatra',
+  roomNumber: '101',
+  phoneNumber: '1234567890',
+  address: '123 Main St',
+  numberOfMembers: '3',
+  dateOfAdmission: '2022-01-01',
+  profession: 'Software Engineer',
+};
 
 const ProfilePage = () => {
+  const [profile, setProfile] = useState(defaultProfile);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    setIsEditing(false);
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setProfile({ ...profile, [name]: value });
+  };
+
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* Profile Header */}
-      <div className="bg-white shadow-md p-4">
-        <div className="flex items-center">
-          <img
-            className="w-20 h-20 rounded-full border-2 border-white"
-            src="https://via.placeholder.com/80" // replace with actual image URL
-            alt="Profile"
-          />
-          <div className="ml-4">
-            <h2 className="text-xl font-semibold">Preeti Patel</h2>
-            <div className="flex space-x-4 mt-1">
-              <div>
-                <span className="block text-gray-600">Feeds</span>
-                <span className="block font-bold">13</span>
-              </div>
-              <div>
-                <span className="block text-gray-600">Connections</span>
-                <span className="block font-bold">77</span>
-              </div>
-              <div>
-                <span className="block text-gray-600">Rewards</span>
-                <span className="block font-bold">1900</span>
-              </div>
-            </div>
-          </div>
-          <button className="ml-auto p-2 bg-blue-500 text-white rounded-md">Edit</button>
-        </div>
+    <div className="max-w-md mx-auto p-4 md:p-6 lg:p-8 bg-white rounded shadow-md text-gray-700 font-sans">
+      <div className="flex items-center space-x-4 mb-4">
+        <img
+          src={profile.photo}
+          alt="Profile Photo"
+          className="w-16 h-16 rounded-full border border-gray-300"
+        />
+        <h2 className="text-xl font-bold">{profile.name}</h2>
       </div>
-
-      {/* Navigation Tabs */}
-      <div className="bg-white shadow-md mt-2">
-        <div className="flex justify-around text-center">
-          <div className="py-2 px-4 border-b-4 border-blue-500">HOME</div>
-          <div className="py-2 px-4">ABOUT</div>
-          <div className="py-2 px-4">GALLERY</div>
-          <div className="py-2 px-4">EVENTS</div>
-          <div className="py-2 px-4">GROUPS</div>
-        </div>
-      </div>
-
-      {/* Education Section */}
-      <div className="p-4">
-        <h3 className="text-lg font-semibold mb-4">Education</h3>
-        <div className="bg-white shadow-md p-4 rounded-md">
-          <div className="mb-4">
-            <div className="flex justify-between">
-              <span className="text-blue-500 font-semibold">White House Public School</span>
-              <button className="text-blue-500">Edit</button>
+      <div className="bg-gray-100 p-4 rounded mb-4">
+        <h3 className="text-lg font-bold mb-2">Profile Information</h3>
+        {isEditing ? (
+          <form>
+            <div className="flex flex-col space-y-2">
+              <label className="text-sm font-medium">Room Number:</label>
+              <input
+                type="text"
+                name="roomNumber"
+                value={profile.roomNumber}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+              />
             </div>
-            <p className="text-gray-600">11th, Science</p>
-            <p className="text-gray-600">94%, 1996</p>
-          </div>
+            <div className="flex flex-col space-y-2 mt-2">
+              <label className="text-sm font-medium">Phone Number:</label>
+              <input
+                type="text"
+                name="phoneNumber"
+                value={profile.phoneNumber}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+              />
+            </div>
+            <div className="flex flex-col space-y-2 mt-2">
+              <label className="text-sm font-medium">Address:</label>
+              <input
+                type="text"
+                name="address"
+                value={profile.address}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+              />
+            </div>
+            <div className="flex flex-col space-y-2 mt-2">
+              <label className="text-sm font-medium">Number of Members:</label>
+              <input
+                type="text"
+                name="numberOfMembers"
+                value={profile.numberOfMembers}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+              />
+            </div>
+            <div className="flex flex-col space-y-2 mt-2">
+              <label className="text-sm font-medium">Date of Admission:</label>
+              <input
+                type="date"
+                name="dateOfAdmission"
+                value={profile.dateOfAdmission}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+              />
+            </div>
+            <div className="flex flex-col space-y-2 mt-2">
+              <label className="text-sm font-medium">Profession:</label>
+              <input
+                type="text"
+                name="profession"
+                value={profile.profession}
+                onChange={handleInputChange}
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={handleSave}
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-500"
+            >
+              Save
+            </button>
+          </form>
+        ) : (
           <div>
-            <div className="flex justify-between">
-              <span className="text-blue-500 font-semibold">M K V School of Health Wellness</span>
-              <button className="text-blue-500">Edit</button>
-            </div>
-            <p className="text-gray-600">Health care, Science</p>
-            <p className="text-gray-600">99%, 1996</p>
+            <p className="text-sm font-medium">Room Number: {profile.roomNumber}</p>
+            <p className="text-sm font-medium mt-2">Phone Number: {profile.phoneNumber}</p>
+            <p className="text-sm font-medium mt-2">Address: {profile.address}</p>
+            <p className="text-sm font-medium mt-2">Number of Members: {profile.numberOfMembers}</p>
+            <p className="text-sm font-medium mt-2">Date of Admission: {profile.dateOfAdmission}</p>
+            <p className="text-sm font-medium mt-2">Profession: {profile.profession}</p>
+            <button
+              type="button"
+              onClick={handleEdit}
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-500 mt-4"
+            >
+              Edit
+            </button>
           </div>
-        </div>
-      </div>
-
-      {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md flex justify-around py-2">
-        <div className="flex flex-col items-center text-blue-500">
-          <i className="fas fa-home"></i>
-          <span className="text-xs">Home</span>
-        </div>
-        <div className="flex flex-col items-center text-gray-500">
-          <i className="fas fa-book"></i>
-          <span className="text-xs">Academics</span>
-        </div>
-        <div className="flex flex-col items-center text-gray-500">
-          <i className="fas fa-globe"></i>
-          <span className="text-xs">OctoWorld</span>
-        </div>
-        <div className="flex flex-col items-center text-gray-500">
-          <i className="fas fa-bell"></i>
-          <span className="text-xs">Notifications</span>
-        </div>
+        )}
       </div>
     </div>
   );

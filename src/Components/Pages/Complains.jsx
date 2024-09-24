@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 const categories = [
   { value: 'rent', label: 'Rent' },
   { value: 'maintenance', label: 'Maintenance' },
-  { value: 'lease', label: 'Lease' },
   { value: 'other', label: 'Other' },
 ];
 
