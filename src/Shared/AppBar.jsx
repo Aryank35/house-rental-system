@@ -23,7 +23,7 @@ export default function AppBar() {
          
           <Link to="/" className="flex-1 flex items-center my-2  sm:justify-start">            
             <div className="flex-shrink-0 text-white text-xl font-bold">
-              Mo Ghara
+            RentHub
             </div>
           </Link>
           

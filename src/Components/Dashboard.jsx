@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div>
-      <div className="flex justify-between mx-2 h-[40vh] items-center">
+      <div className="flex flex-wrap justify-between mx-2 h-[40vh] items-center">
         <Link
           to="/dues"
-          className="bg-blue-500 text-white font-bold px-7 py-6 text-sm h-[80px] rounded-md w-[45%] text-center "
+          className="shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 bg-blue-500 text-white font-bold px-7 py-6 text-sm h-[100px] mt-[30px] rounded-md w-[45%] md:w-[23%] md:h-[120px] md:text-lg text-center "
         >
           <div className=" text-center flex flex-col justify-center items-center">
             <span>
@@ -20,7 +20,7 @@ const Dashboard = () => {
         </Link>
         <Link
           to="/complains"
-          className="bg-blue-500 text-white font-bold px-7 py-6 text-sm h-[80px] rounded-md w-[45%] text-center "
+          className="shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 bg-blue-500 text-white font-bold px-5 py-6 text-sm h-[100px] mt-[30px] rounded-md w-[45%] md:w-[23%] md:h-[120px] md:text-lg text-center "
         >
           <div className=" text-center flex flex-col justify-center items-center">
             <span>
@@ -29,13 +29,28 @@ const Dashboard = () => {
             <span> Complains</span>
           </div>
         </Link>
-      </div>
-      <div className="flex flex-col justify-center items-center space-y-3 my-3 text-center">
-        <Link to="/paymentHistory" className="bg-blue-300 text-black font-bold px-7 py-3 rounded-md w-[90%] items-center">
-          Payment History
+
+        <Link
+          to="/paymentHistory"
+          className="shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 bg-blue-500 text-white font-bold px-3 py-6 text-sm h-[100px] mt-[30px] rounded-md w-[45%] md:w-[23%] md:h-[120px] md:text-lg text-center "
+        >
+          <div className=" text-center flex flex-col justify-center items-center">
+            <span>
+              <FontAwesomeIcon icon={faInbox} className="text-2xl" />
+            </span>
+            <span> Payment History</span>
+          </div>
         </Link>
-        <Link to="/electricityBill" className="bg-blue-300 text-black font-bold px-7 py-3 rounded-md w-[90%] items-center">
-          Electricity Bill
+        <Link
+          to="/electricityBill"
+          className="shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 bg-blue-500 text-white font-bold px-3 py-6 text-sm h-[100px] mt-[30px] rounded-md w-[45%] md:w-[23%] md:h-[120px] md:text-lg text-center "
+        >
+          <div className=" text-center flex flex-col justify-center items-center">
+            <span>
+              <FontAwesomeIcon icon={faInbox} className="text-2xl" />
+            </span>
+            <span> Electricity Bill</span>
+          </div>
         </Link>
       </div>
     </div>
