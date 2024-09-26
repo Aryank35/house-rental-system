@@ -53,6 +53,18 @@ const Dashboard = () => {
           </div>
         </Link>
       </div>
+
+      {/* Button to navigate to external URL */}
+      <div className="flex justify-center mt-[100px]">
+        <a
+          href="https://house-rental-system-admin.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded transition duration-300"
+        >
+          Go to Admin Portal
+        </a>
+      </div>
     </div>
   );
 };
