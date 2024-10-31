@@ -34,15 +34,20 @@ const Dues = () => {
       buttonText: "view receipt",
     },
   ];
+
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50 py-5">
       <Link to="/" className="w-fit">
-        <button className=" text-black text-lg font-semibold ml-5 mt-3 hover:text-red-600 underline">
+        <button className="text-lg font-semibold ml-5 mt-3 hover:text-red-600 underline">
           Back
         </button>
       </Link>
-      <h1 className="my-1 font-bold text-3xl text-center underline">Dues</h1>
-      <div>
+
+      <h1 className="font-bold text-3xl text-center underline text-blue-700 my-5">
+        Dues
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 px-5">
         {dueList.map((item) => (
           <DueBox
             key={item.dop}

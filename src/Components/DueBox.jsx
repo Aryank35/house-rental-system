@@ -6,26 +6,34 @@ const DueBox = (props) => {
 
   const handleButtonClick = () => {
     if (props.buttonText === 'Pay') {
-      navigate('/feesDescription'); 
-    } else if (props.buttonText === 'view receipt') {
-      navigate('/rentReceipt'); 
+      navigate('/feesDescription');
+    } else if (props.buttonText === 'View Receipt') {
+      navigate('/rentReceipt');
     }
   };
 
   return (
-    <div className='my-7 space-y-3 bg-blue-300 mx-2 rounded-xl px-2 py-5'>
-      <div className='flex justify-between mx-5 items-center text-center'>
-        <div className='font-bold text-xl'>{props.month}</div>
-        <div className='text-red-800 text-lg font-semibold'>{props.stats}</div>
+    <div className="my-7 bg-white shadow-lg rounded-xl p-5 mx-2 hover:shadow-xl transition-shadow duration-300 ease-in-out">
+      {/* Month and Status */}
+      <div className="flex justify-between items-center mb-4">
+        <div className="font-bold text-2xl text-blue-700">{props.month}</div>
+        <div className={`text-lg font-semibold ${props.stats === 'Due' ? 'text-red-600' : 'text-green-600'}`}>
+          {props.stats}
+        </div>
       </div>
-      <div className='flex justify-between mx-5 items-center text-center'>
-        <div className='text-sm'>{props.dop}</div>
-        <div
-          className='bg-blue-600 text-white py-2 px-4 rounded-xl font-semibold text-center cursor-pointer'
+      
+      {/* Date and Button */}
+      <div className="flex justify-between items-center">
+        <div className="text-gray-600 text-sm">{props.dop}</div>
+        <button
           onClick={handleButtonClick}
+          className={`py-2 px-6 rounded-lg font-semibold text-white 
+            ${props.buttonText === 'Pay' ? 'bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700' 
+            : 'bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700'} 
+            focus:outline-none shadow-md hover:shadow-lg transition-all duration-300`}
         >
           {props.buttonText}
-        </div>
+        </button>
       </div>
     </div>
   );
