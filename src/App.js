@@ -11,6 +11,7 @@ import ElectricityBill from "./Components/Pages/Payment/ElectricityBill";
 import NotificationPage from "./Components/NotificationPage";
 import NoticePage from "./Components/NoticePage";
 import ProfilePage from "./Components/ProfilePage";
+import PaymentGateway from "./Components/Pages/Payment/PaymentGateway";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/electricityBill" element={<ElectricityBill/>} />
           <Route path="/notification" element={<NotificationPage/>} />
           <Route path="/notice" element={<NoticePage/>} />
+          <Route path="/paymentGateway" element={<PaymentGateway/>} />
         </Routes>
       </BrowserRouter>
     </>

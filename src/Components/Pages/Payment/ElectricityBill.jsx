@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ElectricityBill = () => {
   const [bill, setBill] = useState({
@@ -6,12 +6,21 @@ const ElectricityBill = () => {
     year: 2024,
     totalConsumption: 500,
     ratePerUnit: 4.15,
-    paymentStatus: 'Unpaid'
+    paymentStatus: localStorage.getItem('paymentStatus') || 'Unpaid', // Check if paymentStatus is stored
   });
 
+  // Handle payment and redirect to the payment gateway
   const handlePayment = () => {
-    setBill((prevBill) => ({ ...prevBill, paymentStatus: 'Paid' }));
+    window.location.href = "/paymentGateway";
   };
+
+  // After redirect, check if the payment is marked as paid
+  useEffect(() => {
+    const storedPaymentStatus = localStorage.getItem('paymentStatus');
+    if (storedPaymentStatus === 'Paid') {
+      setBill((prevBill) => ({ ...prevBill, paymentStatus: 'Paid' }));
+    }
+  }, []);
 
   return (
     <div className="max-w-md mx-auto p-8 mt-12 bg-white rounded-lg shadow-lg border border-gray-200">
