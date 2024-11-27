@@ -3,8 +3,15 @@ import { useState } from "react";
 const PaymentHistory = () => {
   const [payments, setPayments] = useState([
     { id: 1, date: "2022-01-01", amount: 1000, status: "paid" },
-    { id: 2, date: "2022-02-01", amount: 1000, status: "paid" },
-    { id: 3, date: "2022-03-01", amount: 1000, status: "pending" },
+    { id: 2, date: "2022-02-01", amount: 1500, status: "paid" },
+    { id: 3, date: "2022-03-01", amount: 1200, status: "pending" },
+    { id: 4, date: "2022-04-01", amount: 900, status: "paid" },
+    { id: 5, date: "2022-05-01", amount: 800, status: "pending" },
+    { id: 6, date: "2022-06-01", amount: 2000, status: "paid" },
+    { id: 7, date: "2022-07-01", amount: 1800, status: "paid" },
+    { id: 8, date: "2022-08-01", amount: 1600, status: "pending" },
+    { id: 9, date: "2022-09-01", amount: 1100, status: "paid" },
+    { id: 10, date: "2022-10-01", amount: 1300, status: "pending" },
   ]);
 
   const [selectedPayment, setSelectedPayment] = useState("all");
@@ -13,18 +20,38 @@ const PaymentHistory = () => {
     setSelectedPayment(e.target.value);
     if (e.target.value === "all") {
       setPayments([
-        { id: 1, date: "2022-01-01", amount: 1000, status: "paid" },
-        { id: 2, date: "2022-02-01", amount: 1000, status: "paid" },
-        { id: 3, date: "2022-03-01", amount: 1000, status: "pending" },
+        { id: 1, date: "2024-01-05", amount: 3000, status: "paid" },
+        { id: 2, date: "2024-02-05", amount: 3500, status: "paid" },
+        
+        { id: 4, date: "2024-04-05", amount: 300, status: "paid" },
+        
+        { id: 6, date: "2024-06-05", amount: 3000, status: "paid" },
+        { id: 7, date: "2024-07-05", amount: 3800, status: "paid" },
+        { id: 8, date: "2024-08-05", amount: 3600, status: "pending" },
+        { id: 9, date: "2024-09-05", amount: 3100, status: "paid" },
+        { id: 10, date: "2024-10-51", amount: 3300, status: "pending" },
       ]);
     } else if (e.target.value === "paid") {
       setPayments([
-        { id: 1, date: "2022-01-01", amount: 1000, status: "paid" },
-        { id: 2, date: "2022-02-01", amount: 1000, status: "paid" },
+        { id: 1, date: "2024-01-05", amount: 3000, status: "paid" },
+        { id: 2, date: "2024-02-05", amount: 3500, status: "paid" },
+        
+        { id: 4, date: "2024-04-05", amount: 300, status: "paid" },
+        
+        { id: 6, date: "2024-06-05", amount: 3000, status: "paid" },
+        { id: 7, date: "2024-07-05", amount: 3800, status: "paid" },
+        
+        { id: 9, date: "2024-09-05", amount: 3100, status: "paid" },
+        
       ]);
     } else if (e.target.value === "pending") {
       setPayments([
-        { id: 3, date: "2022-03-01", amount: 1000, status: "pending" },
+       
+      
+        
+        { id: 8, date: "2024-08-01", amount: 3600, status: "pending" },
+        
+        { id: 10, date: "2024-10-01", amount: 3300, status: "pending" },
       ]);
     }
   };
