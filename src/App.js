@@ -12,6 +12,7 @@ import NotificationPage from "./Components/NotificationPage";
 import NoticePage from "./Components/NoticePage";
 import ProfilePage from "./Components/ProfilePage";
 import PaymentGateway from "./Components/Pages/Payment/PaymentGateway";
+import Login from "./Components/Pages/Login/Login";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <BrowserRouter>
       <AppBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login/>} />
+          <Route path="/user-dashboard" element={<Home />} />
           <Route path="/profile" element={<ProfilePage/>} />
           <Route path="/dues" element={<Dues />} />
           <Route path="/feesDescription" element={<FeesDescription />} />
